@@ -1,4 +1,6 @@
-import React from 'react'
+import React,{ useState,useEffect} from 'react'
+import { getQuizQuestions } from "../apis/apiCalls";
+
 
 var quiz_question = [
     {
@@ -116,6 +118,12 @@ var quiz_question = [
 
 
 export default function Quiz() {
+    const [data, setData] = useState([]);
+
+
+    useEffect(() => {
+        getQuizQuestions(setData);
+      }, []);
     return (
         <div className="quiz-container">
         {
