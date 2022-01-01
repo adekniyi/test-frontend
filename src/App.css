@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+.subhome-container{
+  display:flex;
+}
+.left-subhome{
+  width: 50%;
+  background-color: #FFF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.right-subhome{
+  width: 50%;
+  background-color: #FF9F2F;
+  /* text-align: center; */
+  color: #FFF;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: 600px; */
+  padding-top: 12.8rem;
+  padding-bottom: 12.8rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.right-subhome-div{
+  width: 70%;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.right-subhome-div h1{
+  font-size: 48px;
+}
+
+.right-subhome-div p{
+  font-size: 18px;
+}
+
+.right-subhome-div button{
+  float: left;
+  padding: 12px 15px;
+  border-radius:10px;
+  border:none !important;
+  color: #FF9F2F;
+  margin-top:4rem;
+  cursor: pointer;
+}
+
+.home-input-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction:column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 100%;
+  padding-top: 12.8rem;
+  padding-bottom: 12.8rem;
 }
 
-.App-link {
-  color: #61dafb;
+.home-input-container h5{
+  font-size:30px;
+  text-align:left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.home-input-container input{
+  width:80%;
+  padding: 12px 15px;
+  border-radius:10px;
+  border:none !important;
+  box-shadow: 18px 18px 18px rgba(192, 192, 192, 0.2);
+  outline: none !important;
+}
+
+.home-input-container button{
+  padding: 12px 15px;
+  border-radius:10px;
+  border:none !important;
+  background-color: #FF9F2F;
+  color: #FFF;
+  margin-top:4rem;
+}
+
+.welcome-container{
+  background-color: #FF9F2F;
+  color: #FFF;
+  /* padding-top: 9rem;
+  padding-bottom: 9rem; */
+  padding:7rem 2rem;
+  margin-top:10rem !important;;
+  /* margin-bottom: 4rem; */
+  text-align: center;
+  width: 60%;
+  margin:0 auto;
+}
+
+.welcome-container button{
+  padding: 12px 15px;
+  border-radius:10px;
+  border:none !important;
+  background-color: #FFF;
+  color: #FF9F2F;
+  margin-top:1.5rem;
+}
+
+.quiz-container{
+  /* padding:7rem 2rem; */
+  margin-top:10rem !important;;
+  /* margin-bottom: 4rem; */
+  text-align: center;
+  margin:0 auto;
+  width: 100%;
+}
+
+.quiz-container h5{
+  font-size:30px;
+}
+.quiz-container label{
+  font-size:24px
+}
+.quiz-container button{
+  padding: 18px 25px;
+  border-radius:10px;
+  border:none !important;
+  background-color: #FF9F2F;
+  color: #FFF;
+  margin-top:2rem;
+  width:150px;
+  cursor: pointer;
 }
