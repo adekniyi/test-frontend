@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Home from "./components/home"
 import Quiz from "./components/quiz"
+import Success from "./components/success"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ const MainComponent = withRouter(({ location, history, match }) => (
   <>
     <Route exact path='/' component={() => <Home/>} />
     <Route exact path='/quiz' component={() => <Quiz/>} />
+    <Route exact path='/success' component={() => <Success/>} />
   </>
   </Switch>
 ));

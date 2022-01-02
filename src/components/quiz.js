@@ -1,5 +1,7 @@
 import React,{ useState,useEffect} from 'react'
 import { getQuizQuestions } from "../apis/apiCalls";
+import { submitQuiz } from "../apis/apiCalls";
+import { useHistory } from "react-router-dom";
 
 
 var quiz_question = [
@@ -119,22 +121,42 @@ var quiz_question = [
 
 export default function Quiz() {
     const [data, setData] = useState([]);
+  const [selectedCandidates, setSelectedCandidates] = useState([]);
+  const History = useHistory()
 
 
     useEffect(() => {
         getQuizQuestions(setData);
       }, []);
+
+      const setMultipleSelection = (option, e) => {
+        // e.preventDefault();
+        const { checked } = e.target;
+          checked
+            ? (() => {
+                setSelectedCandidates([...selectedCandidates, option]);
+              })()
+            : (() => {
+                const removedOption = selectedCandidates.filter(
+                  ({ quizQuestionOption_id }) => quizQuestionOption_id !== option.quizQuestionOption_id
+                );
+                setSelectedCandidates([...removedOption]);
+              })();
+      };
     return (
         <div className="quiz-container">
         {
-        quiz_question.map((item)=>(
+        data?.map((item,index)=>(
             <>
-            <h5>{item.full_question}</h5>
+            <h5 key={item.quizQuestion_id}>{item.full_question}</h5>
             {
                 item.quiz_questionOptions.map((option)=>(
                     <>
-                        <input type="radio" id="html" name="fav_language" value="HTML"/>
-                        <label for="html">{option.option}</label><br/>
+                        <input key={index}   onChange={(e) => setMultipleSelection(option, e)}
+                    value={option}
+                    type="checkbox"
+                    id={option.quizQuestionOption_id} name="fav_language"/>
+                        <label key={option.quizQuestionOption_id} for="html">{option.option}</label><br/>
                     </>
                 ))
             }
@@ -155,6 +177,10 @@ export default function Quiz() {
                 <li>Stand up straight and tall</li> */}
 
 <button
+ onClick={() =>
+    //console.log(selectedCandidates)
+    submitQuiz(selectedCandidates,History)
+  }
                 type='button'
                 >Next</button>
         </div>
