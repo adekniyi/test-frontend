@@ -72,6 +72,7 @@
   background-color: #FF9F2F;
   color: #FFF;
   margin-top:4rem;
+  cursor: pointer;
 }
 
 .welcome-container{
@@ -120,4 +121,48 @@
   margin-top:2rem;
   width:150px;
   cursor: pointer;
+}
+
+.btn{
+  padding: 18px 25px;
+  border-radius:10px;
+  border:none !important;
+  background-color: #FF9F2F;
+  color: #FFF;
+  margin-top:2rem;
+  width:150px;
+  cursor: pointer;
+}
+
+
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #2b2eff;
+  color: #2b2eff;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #2b2eff;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #2b2eff;
+}
+
+.paginationDisabled a {
+  color: grey;
+  background-color: grey;
 }
