@@ -5,7 +5,7 @@ export default function Success() {
     const name = JSON.parse(localStorage.getItem("name"));
 
     return (
-        <div>
+        <div className="success-container">
             <h1>Congratulations! {name}</h1>
             <h1>You score {totalScore}%</h1>
         </div>

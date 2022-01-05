@@ -32,13 +32,17 @@ export default function Quiz() {
           checked
             ? (() => {
                 setSelectedCandidate(option)
-                setSelectedCandidates([...selectedCandidates, option]);
+                const removedOption = selectedCandidates.filter(
+                  ({ quizQuestion_id }) => quizQuestion_id !== option.quizQuestion_id
+                );
+                console.log(removedOption)
+                //setSelectedCandidates(selectedCandidates.pop(removedOption));
+                setSelectedCandidates([...removedOption, option]);
               })()
             : (() => {
                 const removedOption = selectedCandidates.filter(
                   ({ quizQuestionOption_id }) => quizQuestionOption_id !== option.quizQuestionOption_id
                 );
-                setSelectedCandidate({})
                 setSelectedCandidates([...removedOption]);
               })();
       };
@@ -47,9 +51,9 @@ export default function Quiz() {
                         ?.slice(pageVisited,pageVisited+questionPerPage)
                         .map((question, index) =>{
                         return (
-                            <div className="quiz-container">
+                            <>
                                  <>
-            <h5 key={question.quizQuestion_id}>{question.full_question}</h5>
+            <h5 key={question.quizQuestion_id}><span className="quiz-zpan-question">{pageNumber+1}.</span> {question.full_question}</h5>
             {
                 question.quiz_questionOptions.map((option)=>(
                     <>
@@ -70,14 +74,17 @@ export default function Quiz() {
                 ))
             }
             </>
-                            </div>
+                            </>
                         ) 
                         })
     
   const isLastPage = displayQuestions.length !== questionPerPage || pageVisited+questionPerPage === data.length;
     
     return (
-        <>
+        <div className="quiz-container">
+          <div className="quiz-timer">
+            <h2>Time</h2><p> :30min</p>
+          </div>
         {displayQuestions}
         <ReactPaginate
         previousLabel={"previous"}
@@ -93,37 +100,16 @@ export default function Quiz() {
                 {console.log(isLastPage)}
 
             {isLastPage ?
+             <div className="subhome-btn">
                 <button
                 className="btn"
                 onClick={() =>
-                   console.log(selectedCandidates)
-                   //submitQuiz(selectedCandidates,History)
-                 }type='button'>Submit</button>: null
+                   //console.log(selectedCandidates)
+                   submitQuiz(selectedCandidates,History)
+                 }type='button'>Submit</button>
+              </div>
+                 : null
             }
-        </>
-//         <div className="quiz-container">
-//         {
-//         data?.map((item,index)=>(
-//             <>
-//             <h5 key={item.quizQuestion_id}>{item.full_question}</h5>
-//             {
-//                 item.quiz_questionOptions.map((option)=>(
-//                     <>
-//                         <input key={index}   onChange={(e) => setSelectedCandidate(option)}
-//                     value={selectedCandidate}
-//                     type="checkbox"
-//                     id={option.quizQuestionOption_id} 
-//                     checked={selectedCandidate?.quizQuestionOption_id === option.quizQuestionOption_id}
-//                     //name="fav_language"
-//                     />
-//                         <label key={option.quizQuestionOption_id} htmlFor={option.quizQuestionOption_id}>{option.option}</label><br/>
-//                     </>
-//                 ))
-//             }
-//             </>
-//         ))
-//         }
-
-//         </div>
+        </div>
     )
 }

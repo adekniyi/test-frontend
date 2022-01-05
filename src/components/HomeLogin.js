@@ -20,11 +20,13 @@ export default function HomeLogin(props) {
                 <input 
                 value={data} onChange={handleChange}
                  type="text" placeholder="Enter your name"/>
+                 <div className="subhome-btn">
                 <button
                 //onClick={() => props.setCount(props.count + 1)}
                 onClick={handleSubmit}
                 type='button'
                 >Let’s get started</button>
+                </div>
             </div>
         </div>
     )

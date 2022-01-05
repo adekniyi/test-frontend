@@ -1,5 +1,6 @@
 .subhome-container{
   display:flex;
+  Font-family: Montserrat;
 }
 .left-subhome{
   width: 50%;
@@ -14,50 +15,67 @@
   /* justify-content: center; */
   /* align-items: center; */
   /* height: 600px; */
-  padding-top: 12.8rem;
-  padding-bottom: 12.8rem;
+  padding-top: 14rem;
 }
 
 .right-subhome-div{
-  width: 70%;
+  width: 65%;
   margin: 0 auto;
 }
 
 .right-subhome-div h1{
   font-size: 48px;
+  line-height:1em;
+Font-style: Bold;
+
 }
 
 .right-subhome-div p{
   font-size: 18px;
 }
 
-.right-subhome-div button{
+/* .right-subhome-div */
+.subhome-btn{
+  display:flex;
+  justify-content: flex-end;
+}
+
+.right-subhome-div .subhome-btn button{
   float: left;
   padding: 12px 15px;
   border-radius:10px;
-  border:none !important;
+  border:#FF9F2F;
   color: #FF9F2F;
-  margin-top:4rem;
+  margin-top:2.5em;
   cursor: pointer;
+  font-size:14px;
 }
 
+.right-subhome-div .subhome-btn button:hover{
+  background-color: transparent;
+  border: 2px solid #FFF;
+  color: #FFF;
+}
 .home-input-container{
   display: flex;
   flex-direction:column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-top: 12.8rem;
-  padding-bottom: 12.8rem;
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 12rem;
+  Font-family: Montserrat;
 }
 
 .home-input-container h5{
   font-size:30px;
   text-align:left;
+  padding-left:12px;
 }
 
 .home-input-container input{
-  width:80%;
+  width:100%;
+  margin: 0 auto;
   padding: 12px 15px;
   border-radius:10px;
   border:none !important;
@@ -67,47 +85,86 @@
 
 .home-input-container button{
   padding: 12px 15px;
-  border-radius:10px;
-  border:none !important;
+  border:#FF9F2F;
   background-color: #FF9F2F;
   color: #FFF;
-  margin-top:4rem;
+  margin-top:2.5em;
   cursor: pointer;
+  font-size:14px;
+}
+
+.home-input-container button:hover{
+  background-color: transparent;
+  border: 2px solid #FF9F2F;
+  color: #FF9F2F;
 }
 
 .welcome-container{
-  background-color: #FF9F2F;
-  color: #FFF;
-  /* padding-top: 9rem;
-  padding-bottom: 9rem; */
-  padding:7rem 2rem;
+  display:flex;
   margin-top:10rem !important;;
   /* margin-bottom: 4rem; */
-  text-align: center;
-  width: 60%;
+  width: 80%;
   margin:0 auto;
+  position: relative;
 }
 
-.welcome-container button{
-  padding: 12px 15px;
-  border-radius:10px;
-  border:none !important;
+.welcome-image{
+  width:50%;
+  position: absolute;
+}
+
+.welcome-content{
+  width:50%;
+  background-color: #FF9F2F;
+  color: #FFF;
+  padding:2rem 2rem;
+  height:150px;
+  text-align: left;
+  margin:0 auto;
+  margin-left: 20rem;
+  /* margin: 3rem 2rem; */
+}
+
+.welcome-subcontent{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.welcome-container .welcome-content .welcome-subcontent p{
+  margin-top:0;
+}
+
+.welcome-container .welcome-content button{
+  padding: 12px 18px;
+  border-radius:50%;
+  border:#FF9F2F;
   background-color: #FFF;
   color: #FF9F2F;
-  margin-top:1.5rem;
+  font-weight:bold;
+  font-size:18px;
+  cursor: pointer;
+  /* margin-top:1.5rem; */
+}
+
+.welcome-container .welcome-content button:hover{
+  background-color: transparent;
+  border: 2px solid #FFF;
+  color: #FFF;
 }
 
 .quiz-container{
   /* padding:7rem 2rem; */
-  margin-top:10rem !important;;
+  margin-top:5rem !important;;
   /* margin-bottom: 4rem; */
-  text-align: center;
+  /* text-align: center; */
   margin:0 auto;
-  width: 100%;
+  width: 80%;
 }
 
 .quiz-container h5{
   font-size:30px;
+  margin-top: 0;
+  margin-bottom:1.5rem;
 }
 .quiz-container label{
   font-size:24px
@@ -121,6 +178,19 @@
   margin-top:2rem;
   width:150px;
   cursor: pointer;
+}
+
+.quiz-container .quiz-timer{
+  display: flex;
+  justify-content: flex-end;
+align-items: center;
+margin-bottom:2rem;
+}
+
+.quiz-container .quiz-timer p{
+  padding-left: 5px;
+  font-size: 24px;
+  font-weight: 400;
 }
 
 .btn{
@@ -138,6 +208,7 @@
 .paginationBttns {
   width: 80%;
   height: 40px;
+  margin-top:3rem;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -147,22 +218,29 @@
   padding: 10px;
   margin: 8px;
   border-radius: 5px;
-  border: 1px solid #2b2eff;
-  color: #2b2eff;
+  border: 1px solid #FF9F2F;
+  color: #FF9F2F;
   cursor: pointer;
 }
 
 .paginationBttns a:hover {
   color: white;
-  background-color: #2b2eff;
+  background-color: #FF9F2F;
 }
 
 .paginationActive a {
   color: white;
-  background-color: #2b2eff;
+  background-color: #FF9F2F;
 }
 
 .paginationDisabled a {
-  color: grey;
-  background-color: grey;
+  color: #111521;
+  background-color: #111521;
+}
+
+
+.success-container{
+    margin-top: 15rem !important;;
+    margin:0 auto;
+    width: 80%;
 }
