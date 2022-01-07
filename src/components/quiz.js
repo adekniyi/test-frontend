@@ -48,7 +48,7 @@ export default function Quiz() {
         return () => {
           clearInterval(interval);
         };
-      }, [counter]);
+      }, [counter,History,params.quiz_id]);
 
 
       const setMultipleSelection = (option, e) => {
