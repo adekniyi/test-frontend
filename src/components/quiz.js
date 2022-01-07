@@ -3,6 +3,7 @@ import { getQuizQuestions } from "../apis/apiCalls";
 import { submitQuiz } from "../apis/apiCalls";
 import { useHistory } from "react-router-dom";
 import ReactPaginate from 'react-paginate';
+import { useParams } from "react-router-dom";
 
 
 
@@ -11,6 +12,9 @@ export default function Quiz() {
   const [selectedCandidates, setSelectedCandidates] = useState([]);
   const [selectedCandidate, setSelectedCandidate] = useState({});
   const [pageNumber,setPageNumber] = useState(0);
+  const params = useParams(); 
+  localStorage.setItem("quizquestionId", JSON.stringify(params.quiz_id));
+
 
   const questionPerPage = 1;
   const pageVisited = questionPerPage * pageNumber;

@@ -30,7 +30,7 @@ export const getQuizQuestions = (setData) => {
       .then((data) => {
         console.log(data);
         localStorage.setItem("score", JSON.stringify(data.data));
-        History.push('/success')
+        History.push(endpoints.success)
       })
       .catch((err) => {
         handleErrors(err);

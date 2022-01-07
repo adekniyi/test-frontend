@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import welcomeing from '../images/image 2.png';
 
 export default function Welcome() {
+    const quizId = JSON.parse(localStorage.getItem("quizId"));
+
+    const quizRoute = `/quiz/${quizId}`
     return (
         <div className="welcome-container">
             <div className="welcome-image">
@@ -15,7 +18,7 @@ export default function Welcome() {
         this test, if yes then you’re good to go.</p>
         <p>Click on the arrow to get started</p>
         <div className="subhome-btn">
-        <Link to='/quiz'>
+        <Link to={quizRoute}>
         <button
                         type='button'
                         >{">"} </button>

@@ -17,9 +17,9 @@ function App() {
 const MainComponent = withRouter(({ location, history, match }) => (
   <Switch>
   <>
-    <Route exact path='/' component={() => <Home/>} />
-    <Route exact path='/quiz' component={() => <Quiz/>} />
-    <Route exact path='/success' component={() => <Success/>} />
+    <Route exact path='/:quiz_id' component={() => <Home/>} />
+    <Route exact path='/quiz/:quiz_id' component={() => <Quiz/>} />
+    <Route exact path='/success/:quiz_id' component={() => <Success/>} />
   </>
   </Switch>
 ));
