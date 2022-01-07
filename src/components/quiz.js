@@ -7,12 +7,15 @@ import { useParams } from "react-router-dom";
 
 
 
+
 export default function Quiz() {
     const [data, setData] = useState([]);
   const [selectedCandidates, setSelectedCandidates] = useState([]);
   const [selectedCandidate, setSelectedCandidate] = useState({});
   const [pageNumber,setPageNumber] = useState(0);
   const params = useParams(); 
+  const [counter, setCounter] = useState(5)
+
   localStorage.setItem("quizquestionId", JSON.stringify(params.quiz_id));
 
 
@@ -29,6 +32,24 @@ export default function Quiz() {
     useEffect(() => {
         getQuizQuestions(setData);
       }, []);
+
+      useEffect(() => {
+        let interval = null;
+        if(!(counter <=0))
+        {
+          interval  = setTimeout(() => {
+            setCounter(counter-1)
+          }, 10000);
+        } else {
+          clearInterval(interval);
+          localStorage.setItem("score", JSON.stringify("0"));
+          History.push("/success/"+params.quiz_id)
+        }
+        return () => {
+          clearInterval(interval);
+        };
+      }, [counter]);
+
 
       const setMultipleSelection = (option, e) => {
         // e.preventDefault();
@@ -87,7 +108,7 @@ export default function Quiz() {
     return (
         <div className="quiz-container">
           <div className="quiz-timer">
-            <h2>Time</h2><p> :30min</p>
+            <h2>Time</h2><p> :{counter}min</p>
           </div>
         {displayQuestions}
         <ReactPaginate
@@ -103,7 +124,7 @@ export default function Quiz() {
         />
                 {console.log(isLastPage)}
 
-            {isLastPage ?
+            {isLastPage && (counter>0) ?
              <div className="subhome-btn">
                 <button
                 className="btn"
@@ -112,7 +133,7 @@ export default function Quiz() {
                    submitQuiz(selectedCandidates,History)
                  }type='button'>Submit</button>
               </div>
-                 : null
+                 :null
             }
         </div>
     )
