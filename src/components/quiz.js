@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 
 export default function Quiz() {
     const [data, setData] = useState([]);
+    const [newData, setNewData] = useState([]);
   const [selectedCandidates, setSelectedCandidates] = useState([]);
   const [selectedCandidate, setSelectedCandidate] = useState({});
   const [pageNumber,setPageNumber] = useState(0);
@@ -31,7 +32,21 @@ export default function Quiz() {
 
     useEffect(() => {
         getQuizQuestions(setData);
+        // let shuffled = data
+        // ?.map((value) => ({ value, sort: Math.random() }))
+        // .sort((a, b) => a.sort - b.sort)
+        // .map(({ value }) => value)
+        // setData(shuffled)  
       }, []);
+
+      useEffect(() => {
+        let shuffled = data
+        ?.map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
+
+        setNewData(shuffled)  
+      }, [data]);
 
       useEffect(() => {
         let interval = null;
@@ -39,7 +54,7 @@ export default function Quiz() {
         {
           interval  = setTimeout(() => {
             setCounter(counter-1)
-          }, 10000);
+          }, 100000);
         } else {
           clearInterval(interval);
           localStorage.setItem("score", JSON.stringify("0"));
@@ -72,7 +87,7 @@ export default function Quiz() {
               })();
       };
 
-      const displayQuestions = data
+      const displayQuestions = newData
                         ?.slice(pageVisited,pageVisited+questionPerPage)
                         .map((question, index) =>{
                         return (
