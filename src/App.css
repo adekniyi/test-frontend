@@ -184,7 +184,7 @@ font-size:15px;
 .quiz-container button{
   padding: 18px 25px;
   border-radius:10px;
-  border:none !important;
+  border:#FF9F2F;
   background-color: #FF9F2F;
   color: #FFF;
   margin-top:2rem;
@@ -208,7 +208,7 @@ margin-bottom:2rem;
 .btn{
   padding: 18px 25px;
   border-radius:10px;
-  border:#FF9F2F !important;
+  border:#FF9F2F;
   background-color: #FF9F2F;
   color: #FFF;
   margin-top:2rem;
