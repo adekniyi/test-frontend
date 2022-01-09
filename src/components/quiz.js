@@ -54,7 +54,7 @@ export default function Quiz() {
         {
           interval  = setTimeout(() => {
             setCounter(counter-1)
-          }, 100000);
+          }, 60000);
         } else {
           clearInterval(interval);
           localStorage.setItem("score", JSON.stringify("0"));
