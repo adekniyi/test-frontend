@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 
 export default function HomeLogin(props) {
     const [data, setDate] = useState("");
+    const [error, setError] = useState("");
 
     const handleChange = (e) => {
         setDate(e.target.value);
@@ -9,9 +10,14 @@ export default function HomeLogin(props) {
       }
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(data);
-        localStorage.setItem('name',JSON.stringify(data))
-        props.setCount(props.count + 1)
+
+        if(data===""){
+            setError("Please input your name")
+        }else{
+            console.log(data);
+            localStorage.setItem('name',JSON.stringify(data))
+            props.setCount(props.count + 1)
+        }
       }
     return (
         <div>
@@ -20,6 +26,7 @@ export default function HomeLogin(props) {
                 <input 
                 value={data} onChange={handleChange}
                  type="text" placeholder="Enter your name"/>
+                 <p className="homelogin-error">{error}</p>
                  <div className="subhome-btn">
                 <button
                 //onClick={() => props.setCount(props.count + 1)}

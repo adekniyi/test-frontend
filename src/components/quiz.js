@@ -96,10 +96,11 @@ export default function Quiz() {
             <h5 key={question.quizQuestion_id}><span className="quiz-zpan-question">{pageNumber+1}.</span> {question.full_question}</h5>
             {
                 question.quiz_questionOptions.map((option)=>(
-                    <>
+                    <div>
                         <input key={index}   
                         //onChange={(e) => setSelectedCandidate(option)}
                         onChange={(e) => setMultipleSelection(option, e)}
+                        className="quiz-option-container"
                     value={selectedCandidate}
                     type="checkbox"
                     id={option.quizQuestionOption_id} 
@@ -109,8 +110,8 @@ export default function Quiz() {
                     // )}
                     //name="fav_language"
                     />
-                        <label key={option.quizQuestionOption_id} htmlFor={option.quizQuestionOption_id}>{option.option}</label><br/>
-                    </>
+                        <label className="quiz-option-container" key={option.quizQuestionOption_id} htmlFor={option.quizQuestionOption_id}>{option.option}</label><br/>
+                    </div>
                 ))
             }
             </>
