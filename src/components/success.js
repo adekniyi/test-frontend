@@ -7,7 +7,7 @@ export default function Success() {
     return (
         <div className="success-container">
             <h1>Congratulations! {name}</h1>
-            <h1>You score {totalScore}%</h1>
+            <h1>You scored {totalScore}%</h1>
         </div>
     )
 }
